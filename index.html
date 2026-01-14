@@ -22,6 +22,22 @@
       line-height: 1.5;
     }
 
+    .header {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* horizontal centering */
+  justify-content: center; /* vertical centering within container if needed */
+  text-align: center;      /* ensures text inside h1 and org is centered */
+  margin-bottom: 1.5rem;  /* spacing below header */
+}
+
+.logo {
+  max-width: 120px; /* adjust logo size */
+  height: auto;
+  margin-bottom: 0.75rem; /* spacing between logo and name */
+}
+
+
     h1 {
       font-size: 1.6rem;
       margin: 0 0 0.25rem 0;
@@ -66,10 +82,12 @@
 <body>
 
     <!-- Logo -->
-  <img src="logo.png" alt="grow pittsburgh" class="logo" align="center">
-
+<div class="header">
+  <img src="logo.png" alt="grow pittsburgh" class="logo">
   <h1>Nick Lubecki</h1>
   <div class="org">Grow Pittsburgh</div>
+</div>
+
 
   <!-- vCard -->
   <a class="button" href="nick-lubecki.vcf">
