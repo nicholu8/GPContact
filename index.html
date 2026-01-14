@@ -98,23 +98,33 @@
   </a>
   
   <!-- Email reveal -->
-  <button class="button secondary" id="revealEmail" type="button">
-    Show Email
-  </button>
-  
-  <div id="email" class="button secondary" style="display:none;"></div>
+  <button class="button secondary" id="revealEmail" type="button">Show Email</button>
+  <div id="emailContainer" style="display:none;"></div>
 
   <script>
-    document.getElementById("revealEmail").addEventListener("click", function () {
-      var user = "nick";
-      var domain = "growpittsburgh.org";
-      var email = user + "@" + domain;
+    const revealBtn = document.getElementById('revealEmail');
+    const emailContainer = document.getElementById('emailContainer');
 
-      var el = document.getElementById("email");
-      el.textContent = email;
-      el.style.display = "block";
+    revealBtn.addEventListener('click', () => {
+      const user = 'nick';
+      const domain = 'growpittsburgh.org';
+      const email = `${user}@${domain}`;
 
-      this.style.display = "none";
+      // Clear container in case of multiple clicks
+      emailContainer.innerHTML = '';
+
+      // Create a proper mailto link
+      const mailLink = document.createElement('a');
+      mailLink.href = `mailto:${email}`;
+      mailLink.textContent = email;
+      mailLink.className = 'button secondary';
+
+      // Append to container
+      emailContainer.appendChild(mailLink);
+      emailContainer.style.display = 'block';
+
+      // Hide reveal button
+      revealBtn.style.display = 'none';
     });
   </script>
 
